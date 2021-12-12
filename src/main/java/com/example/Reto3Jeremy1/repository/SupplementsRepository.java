@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.example.Reto2Jeremy1.repository;
+package com.example.Reto3Jeremy1.repository;
 
-import com.example.Reto2Jeremy1.model.Supplements;
-import com.example.Reto2Jeremy1.repository.Interface.SupplementsInterface;
+import com.example.Reto3Jeremy1.model.Supplements;
+import com.example.Reto3Jeremy1.repository.Interface.SupplementsInterface;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;

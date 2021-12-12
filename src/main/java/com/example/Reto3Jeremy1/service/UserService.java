@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.example.Reto2Jeremy1.service;
+package com.example.Reto3Jeremy1.service;
 
-import com.example.Reto2Jeremy1.model.User;
-import com.example.Reto2Jeremy1.repository.UserRepository;
+import com.example.Reto3Jeremy1.model.User;
+import com.example.Reto3Jeremy1.repository.UserRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +48,7 @@ public class UserService {
     public User update(User user){
         if(user.getId() != null){
             Optional<User> usuario = userRepository.getUser(user.getId());
-            if (usuario.isEmpty()){
+            if (!usuario.isEmpty()){
                 if(user.getIdentification() !=null){
                     usuario.get().setIdentification(user.getIdentification());   
                 }

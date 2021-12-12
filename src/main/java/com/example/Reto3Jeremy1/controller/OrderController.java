@@ -2,12 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.example.Reto2Jeremy1.controller;
+package com.example.Reto3Jeremy1.controller;
 
-import com.example.Reto2Jeremy1.model.Supplements;
-import com.example.Reto2Jeremy1.service.SupplementsService;
+import com.example.Reto3Jeremy1.model.Order;
+import com.example.Reto3Jeremy1.service.OrderService;
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,45 +22,47 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-
-
 /**
  *
  * @author Jeremy
  */
 @RestController
-@RequestMapping("/api/supplements")
+@RequestMapping("/api/order")
 @CrossOrigin("*")
-public class SupplementsController {
+public class OrderController {
     @Autowired
-    private SupplementsService supplementsService;
-       
-    @GetMapping("/all")
-    public List<Supplements> getAll() {
-        return supplementsService.getAll();
-    }
+    private OrderService orderService;
     
-    @GetMapping("/{reference}")
-    public Optional<Supplements> getSupplement(@PathVariable("reference") String reference) {
-        return supplementsService.getSupplement(reference);
+    @GetMapping("/all")
+    public List<Order> getAll(){
+        return orderService.getAll();
     }
 
+    @GetMapping("/{id}")
+    public Optional<Order> getOrder(@PathVariable("id") Integer id){
+        return orderService.getOrder(id);
+    }
+    
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
-    public Supplements save(@RequestBody Supplements supplements) {
-        return supplementsService.save(supplements);
+    public Order create(@RequestBody Order order){
+        return orderService.create(order);
     }
     
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Supplements update(@RequestBody Supplements supplements) {
-        return supplementsService.update(supplements);
+    public Order update(@RequestBody Order order){
+        return orderService.update(order);
     }
-
-    @DeleteMapping("/{reference}")
+    
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("reference") String supplements) {
-        return supplementsService.delete(supplements);
+    public boolean delete(@PathVariable("id") Integer id){
+        return orderService.delete(id);
+    } 
+    
+    @GetMapping("/zona/{zone}")
+    public List<Order> getZone(@PathVariable("zone") String zone){
+        return orderService.getZone(zone);
     }
-   
 }
